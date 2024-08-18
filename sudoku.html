@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-image: url("https://images.pexels.com/photos/2680270/pexels-photo-2680270.jpeg?cs=srgb&dl=pexels-mudassir-ali-2680270.jpg&fm=jpg");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        td {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            border: 3px solid black;
+            color: white;
+        }
+
+        input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            font-size: 16px;
+            text-align: center;
+        }
+        .option{
+            position: absolute;
+            top: 185px;
+            left: 54%;
+            color: black;
+            font-size:20px;
+            font-weight:bold;
+            height:45px;
+            width: 130px;
+            font-family:cursive;
+            border-radius: 20px;
+        }
+        .t{
+            position: absolute;
+            top: 230px;
+            left: 40%; 
+            background-image: url("");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            background-color: rgb(170, 241, 170);
+        }
+        .b1{
+            position: absolute;
+            top: 650px;
+            left: 655px;
+            color:black;
+            font-size:20px;
+            font-weight:bold;
+            background-color:skyblue;
+            height:50px;
+            width: 130px;
+            font-family:cursive;
+            border: 2px solid white;
+            border-radius: 20px;
+            }
+            .b1:hover{
+            color:black;
+            font-size:20px;
+            font-weight:bold;
+            background-color:white;
+            height:50px;
+            width: 130px;
+            }
+        .b2{
+            position: absolute;
+            top: 650px;
+    
+            color:black;
+            font-size:20px;
+            font-weight:bold;
+            background-color:rgb(118, 168, 118);
+            height:50px;
+            width: 150px;
+            font-family:cursive;
+            border-radius: 20px;
+            border: 2px solid white;
+            right: 580px;
+        }
+        .b2:hover{
+            color:black;
+            font-size:20px;
+            font-weight:bold;
+            background-color:white;
+            height:50px;
+            width: 150px;
+            border-radius: 20px;
+            }
+            h1{
+                color: white;
+                position: absolute;
+                top: 100px;
+                left: 500px;
+            }
+
+    </style>
+</head>
+
+<link rel="stylesheet" type="text/css" href="sudoku.css"/>
+<title>SUDOKU SOLVER</title>
+<body>
+    <link
+    rel="icon"
+    href="https://w7.pngwing.com/pngs/212/253/png-transparent-killer-sudoku-sudoku-numbers-puzzle-sudoku-pro-android-game-text-rectangle-thumbnail.png"
+    type="image/icon type"
+  />
+
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  />
+</head>
+<body>
+  <main>
+    <div class="header sticky">
+      <div>
+        <a href="home.html"
+          ><img
+            src="https://img.gamepix.com/games/sudoku/cover/sudoku.png?width=600&height=340&fit=cover&quality=90"
+            class="logo"
+        /></a>
+      </div>
+      <div class="categories">
+        <ul>
+          <li class="dropdown-content1 dropdown-content">
+            <a href="index.html">HOME</a>
+          </li>
+          <li class="dropdown-content2 dropdown-content">
+            <a href="login.html">LOGIN</a>
+          </li>
+          <li class="dropdown-content3 dropdown-content">
+            <a href="about.html">ABOUT</a>
+          </li>
+          <li class="dropdown-content4 dropdown-content">
+            <a href="#">CONTACT</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+      </main>
+      <fieldset>
+<h1>SUDOKU SOLVER AND GENERATOR</h1>
+<h2>SELECT LEVEL</h2>
+<label for="difficulty">Select Difficulty:</label>
+<select id="difficulty" onchange="changeDifficulty()" class="option">
+    <option value="easy">Easy</option>
+    <option value="medium">Medium</option>
+    <option value="hard">Hard</option>
+</select>
+<table id="sudoku-board" class="t"></table>
+<button onclick="solveSudoku()" class="b1">Solve</button>
+<button onclick="generateSudoku()" class="b2">Generate</button>
+      </fieldset>
+<script>
+    let difficulty = "easy";
+    function isValid(board, row, col, num) {
+        for (let i = 0; i < 9; i++) {
+            if (board[row][i] === num || board[i][col] === num || board[row - row % 3 + i % 3][col - col % 3 + i / 3 | 0] === num) {
+                return false;
+            }
+        }
+        return true;
+    }
+    function solve(board) {
+        for (let row = 0; row < 9; row++) {
+            for (let col = 0; col < 9; col++) {
+                if (board[row][col] === 0) {
+                    for (let num = 1; num <= 9; num++) {
+                        if (isValid(board, row, col, num)) {
+                            board[row][col] = num;
+
+                            if (solve(board)) {
+                                return true;
+                            }
+
+                            board[row][col] = 0;
+                        }
+                    }
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    function solveSudoku() {
+        const board = getBoard();
+        if (solve(board)) {
+            updateBoard(board);
+        } else {
+            alert("No solution exists!");
+        }
+    }
+    function generateSudoku() {
+        const board = generateBoard(difficulty);
+        updateBoard(board);
+    }
+    function getBoard() {
+        const board = [];
+        for (let row = 0; row < 9; row++) {
+            const rowData = [];
+            for (let col = 0; col < 9; col++) {
+                const input = document.getElementById(`cell-${row}-${col}`);
+                rowData.push(input.value !== '' ? parseInt(input.value, 10) : 0);
+            }
+            board.push(rowData);
+        }
+        return board;
+    }
+    function updateBoard(board) {
+        const table = document.getElementById('sudoku-board');
+        table.innerHTML = '';
+
+        for (let row = 0; row < 9; row++) {
+            const tr = document.createElement('tr');
+            for (let col = 0; col < 9; col++) {
+                const td = document.createElement('td');
+                const input = document.createElement('input');
+                input.id = `cell-${row}-${col}`;
+                input.type = 'text';
+                input.value = board[row][col] !== 0 ? board[row][col] : '';
+                input.disabled = board[row][col] !== 0;
+                td.appendChild(input);
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+    }
+    function generateBoard(difficulty) {
+        const board = Array.from({ length: 9 }, () => Array(9).fill(0));
+        solve(board);
+        let emptyCells;
+        switch (difficulty) {
+            case "easy":
+                emptyCells = 30;
+                break;
+            case "medium":
+                emptyCells = 40;
+                break;
+            case "hard":
+                emptyCells = 50;
+                break;
+            default:
+                emptyCells = 40;
+        }
+        for (let i = 0; i < emptyCells; i++) {
+            const row = Math.floor(Math.random() * 9);
+            const col = Math.floor(Math.random() * 9);
+            board[row][col] = 0;
+        }
+
+        return board;
+    }
+    function changeDifficulty() {
+        difficulty = document.getElementById('difficulty').value;
+    }
+    generateSudoku();
+</script>
+
+</body>
+</html>

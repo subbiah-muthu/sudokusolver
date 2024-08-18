@@ -1,0 +1,370 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  .header {
+    display: flex;
+    height: 80px;
+    background-color: black;
+    color: white;
+    align-items: center;
+    
+    /* border: 1px solid red; */
+  }
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  
+    /* -webkit-box-shadow: 0 8px 6px -6px #eee;
+                -moz-box-shadow: 0 8px 6px -6px #eee; */
+    box-shadow: 0 8px 6px -6px #eee;
+  
+    /* box-shadow: 0px 8px 8px -6px rgba(0, 0, 0, 0.5); */
+  }
+  .header div ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+  }
+  
+  .categories {
+    margin-left: 50px;
+    /* display: block; */
+    float: left;
+    width: 37%;
+    /* border: 1px solid red; */
+    /* position: absolute; */
+  }
+  .header div img {
+    width: 51px;
+    margin-left: 60px;
+  }
+  .header div ul li a {
+    /* margin-right: 20px; */
+    padding: 28px 17px 28px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    color: white;
+    /* border-bottom: none; */
+    -webkit-transition: left 0.2s ease-out, width 0.2s ease-out;
+    transition: left 0.2s ease-out, width 0.2s ease-out;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  img {
+    display: block;
+  }
+  .nav-last {
+    padding: 0 12px 0 17px;
+    position: relative;
+    display: flex;
+    height: 40px;
+    margin-left: 30px;
+    /* border: 1px solid red; */
+    position: absolute;
+    right: 50px;
+    color: white;
+  }
+  .nav-last > div {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    align-items: center;
+    padding-top: 5px;
+    margin-left: 15px;
+    color: white;
+  }
+  #svg {
+    height: 15px;
+    /* border: 1px solid red; */
+    margin-left: 0px;
+    color: white;
+    
+  }
+  .logo{
+  height:40px;
+  }
+    body {
+        font-family: Verdana, sans-serif;
+        /* background-color: rgb(248, 248, 248); */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        background-color: rgba(254, 238, 241, 255);
+        background-image: url("images/bg.avif");
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+      }
+
+      @import url(
+"https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+header {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
+
+.heading {
+	color: black;
+}
+
+.title {
+	font-weight: 400;
+	letter-spacing: 1.5px;
+}
+
+.container {
+	height: 600px;
+	width: 500px;
+	background-color: white;
+	box-shadow: 8px 8px 20px rgb(128, 128, 128);
+	position: absolute;
+	overflow: hidden;
+    left:30%;
+    top: 130px;
+        background-image: url("login.jpg");
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        border: 3px solid white;
+}
+
+.btn {
+	height: 60px;
+	width: 300px;
+	margin: 20px auto;
+	box-shadow: 10px 10px 30px rgb(254, 215, 188);
+	border-radius: 50px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.login,
+.signup {
+	font-size: 22px;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	position: relative;
+	cursor: pointer;
+}
+
+.slider {
+	height: 60px;
+	width: 150px;
+	border-radius: 50px;
+	background-image: linear-gradient(to right,
+			rgb(255, 195, 110),
+			rgb(255, 146, 91));
+	position: absolute;
+	top: 20px;
+	left: 100px;
+	transition: all 0.5s ease-in-out;
+}
+
+.moveslider {
+	left: 250px;
+}
+
+.form-section {
+	height: 500px;
+	width: 1000px;
+	padding: 20px 0;
+	display: flex;
+	position: relative;
+	transition: all 0.5s ease-in-out;
+	left: 0px;
+}
+
+.form-section-move {
+	left: -500px;
+}
+
+.login-box,
+.signup-box {
+	height: 100%;
+	width: 500px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0px 40px;
+}
+
+.login-box {
+	gap: 50px;
+}
+
+.signup-box {
+	gap: 30px;
+}
+
+.ele {
+	height: 60px;
+	width: 400px;
+	outline: none;
+	border: none;
+	color: rgb(77, 77, 77);
+	background-color: rgb(240, 240, 240);
+	border-radius: 50px;
+	padding-left: 30px;
+	font-size: 18px;
+}
+
+.clkbtn {
+	height: 60px;
+	width: 150px;
+	border-radius: 50px;
+	background-image: linear-gradient(to right,
+			rgb(255, 195, 110),
+			rgb(255, 146, 91));
+	font-size: 22px;
+	border: none;
+	cursor: pointer;
+}
+
+/* For Responsiveness of the page */
+
+@media screen and (max-width: 650px) {
+	.container {
+		height: 600px;
+		width: 300px;
+	}
+
+	.title {
+		font-size: 15px;
+	}
+
+	.btn {
+		height: 50px;
+		width: 200px;
+		margin: 20px auto;
+	}
+
+	.login,
+	.signup {
+		font-size: 19px;
+	}
+
+	.slider {
+		height: 50px;
+		width: 100px;
+		left: 50px;
+	}
+
+	.moveslider {
+		left: 150px;
+	}
+
+	.form-section {
+		height: 500px;
+		width: 600px;
+	}
+
+	.form-section-move {
+		left: -300px;
+	}
+
+	.login-box,
+	.signup-box {
+		height: 100%;
+		width: 300px;
+        border: 3PX solid black;
+	}
+
+	.ele {
+		height: 50px;
+		width: 250px;
+		font-size: 15px;
+	}
+
+	.clkbtn {
+		height: 50px;
+		width: 130px;
+		font-size: 19px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.container {
+		height: 600px;
+		width: 250px;
+	}
+
+	.heading {
+		font-size: 30px;
+	}
+
+	.title {
+		font-size: 10px;
+	}
+
+	.btn {
+		height: 50px;
+		width: 200px;
+		margin: 20px auto;
+	}
+
+	.login,
+	.signup {
+		font-size: 19px;
+        border-style: solid;
+  border-color: red;
+	}
+
+	.slider {
+		height: 50px;
+		width: 100px;
+		left: 27px;
+	}
+
+	.moveslider {
+		left: 127px;
+	}
+
+	.form-section {
+		height: 500px;
+		width: 500px;
+	}
+
+	.form-section-move {
+		left: -250px;
+	}
+
+	.login-box,
+	.signup-box {
+		height: 100%;
+		width: 250px;
+	}
+
+	.ele {
+		height: 50px;
+		width: 220px;
+		font-size: 15px;
+	}
+
+	.clkbtn {
+		height: 50px;
+		width: 130px;
+		font-size: 19px;
+	}
+}

@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  .header {
+    display: flex;
+    height: 80px;
+    background-color: black;
+    color: white;
+    align-items: center;
+    
+    /* border: 1px solid red; */
+  }
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  
+    /* -webkit-box-shadow: 0 8px 6px -6px #eee;
+                -moz-box-shadow: 0 8px 6px -6px #eee; */
+    box-shadow: 0 8px 6px -6px #eee;
+  
+    /* box-shadow: 0px 8px 8px -6px rgba(0, 0, 0, 0.5); */
+  }
+  .header div ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+  }
+  
+  .categories {
+    margin-left: 50px;
+    /* display: block; */
+    float: left;
+    width: 37%;
+    /* border: 1px solid red; */
+    /* position: absolute; */
+  }
+  .header div img {
+    width: 51px;
+    margin-left: 60px;
+  }
+  .header div ul li a {
+    /* margin-right: 20px; */
+    padding: 28px 17px 28px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    color: white;
+    /* border-bottom: none; */
+    -webkit-transition: left 0.2s ease-out, width 0.2s ease-out;
+    transition: left 0.2s ease-out, width 0.2s ease-out;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  img {
+    display: block;
+  }
+  .nav-last {
+    padding: 0 12px 0 17px;
+    position: relative;
+    display: flex;
+    height: 40px;
+    margin-left: 30px;
+    /* border: 1px solid red; */
+    position: absolute;
+    right: 50px;
+    color: white;
+  }
+  .nav-last > div {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    align-items: center;
+    padding-top: 5px;
+    margin-left: 15px;
+    color: white;
+  }
+  #svg {
+    height: 15px;
+    /* border: 1px solid red; */
+    margin-left: 0px;
+    color: white;
+    
+  }
+  .logo{
+  height:40px;
+  }
+  .play{
+    text-align:center;
+    color:skyblue;
+    font-weight:bold;
+    text-shadow: 0 0 3px blue, 0 0 5px black;
+    padding: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:50px;
+    position: absolute;
+    top: 500px;
+    left: 650px;
+    }
